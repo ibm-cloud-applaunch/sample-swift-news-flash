@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		26B159440A1B2D029929F622 /* Pods_Newsflash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E954F88A21FAE63B1602AB98 /* Pods_Newsflash.framework */; };
+		C717E23A2032DFAF00344593 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C717E2392032DFAF00344593 /* NewsTableViewCell.swift */; };
+		C717E23C2032DFC800344593 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C717E23B2032DFC800344593 /* NewsTableViewController.swift */; };
+		C717E23E2032DFE700344593 /* RSSFeeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = C717E23D2032DFE700344593 /* RSSFeeds.swift */; };
+		C718EA6F2033044E00E6CD03 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C718EA6E2033044E00E6CD03 /* ArticleViewController.swift */; };
 		C7FDA5442032BD1600187B57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FDA5432032BD1600187B57 /* AppDelegate.swift */; };
 		C7FDA5462032BD1600187B57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FDA5452032BD1600187B57 /* ViewController.swift */; };
 		C7FDA5492032BD1600187B57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7FDA5472032BD1600187B57 /* Main.storyboard */; };
@@ -17,6 +21,10 @@
 
 /* Begin PBXFileReference section */
 		55E29AF8B60F3E3A9365DE2B /* Pods-Newsflash.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Newsflash.release.xcconfig"; path = "Pods/Target Support Files/Pods-Newsflash/Pods-Newsflash.release.xcconfig"; sourceTree = "<group>"; };
+		C717E2392032DFAF00344593 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		C717E23B2032DFC800344593 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
+		C717E23D2032DFE700344593 /* RSSFeeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSFeeds.swift; sourceTree = "<group>"; };
+		C718EA6E2033044E00E6CD03 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		C7FDA5402032BD1600187B57 /* Newsflash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newsflash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7FDA5432032BD1600187B57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7FDA5452032BD1600187B57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,10 +88,14 @@
 			children = (
 				C7FDA5432032BD1600187B57 /* AppDelegate.swift */,
 				C7FDA5452032BD1600187B57 /* ViewController.swift */,
+				C717E2392032DFAF00344593 /* NewsTableViewCell.swift */,
+				C717E23B2032DFC800344593 /* NewsTableViewController.swift */,
+				C717E23D2032DFE700344593 /* RSSFeeds.swift */,
 				C7FDA5472032BD1600187B57 /* Main.storyboard */,
 				C7FDA54A2032BD1600187B57 /* Assets.xcassets */,
 				C7FDA54C2032BD1600187B57 /* LaunchScreen.storyboard */,
 				C7FDA54F2032BD1600187B57 /* Info.plist */,
+				C718EA6E2033044E00E6CD03 /* ArticleViewController.swift */,
 			);
 			path = Newsflash;
 			sourceTree = "<group>";
@@ -167,15 +179,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Newsflash/Pods-Newsflash-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,8 +231,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C717E23E2032DFE700344593 /* RSSFeeds.swift in Sources */,
+				C718EA6F2033044E00E6CD03 /* ArticleViewController.swift in Sources */,
+				C717E23C2032DFC800344593 /* NewsTableViewController.swift in Sources */,
 				C7FDA5462032BD1600187B57 /* ViewController.swift in Sources */,
 				C7FDA5442032BD1600187B57 /* AppDelegate.swift in Sources */,
+				C717E23A2032DFAF00344593 /* NewsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
