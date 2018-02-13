@@ -24,17 +24,6 @@ internal class RSSFeeds {
                  self.data = JSON(dict["articles"])
             }
             
-            
-//            let dataToConvert = result.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue))
-//            do {
-//                let json = try JSON(data: dataToConvert!)
-//                 print(json)
-//            } catch{
-//              print(error)
-//            }
-//
-           
-            
         }
     }
     

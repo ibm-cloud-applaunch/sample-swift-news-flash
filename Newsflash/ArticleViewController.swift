@@ -9,11 +9,30 @@
 import UIKit
 
 class ArticleViewController: UIViewController {
-
+    
+    var articleTitle:String?
+    var articleDescription:String?
+    var articleImage:UIImage?
+    var authorName:String?
+    @IBOutlet weak var rssDescription: UITextView!
+    @IBOutlet weak var rssImage: UIImageView!
+    @IBOutlet weak var rssTitle: UILabel!
+    @IBOutlet weak var rssAuthor: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        rssTitle.numberOfLines = 3
+        rssTitle.text = articleTitle
+        rssDescription.text = articleDescription
+        if (authorName?.isEmpty)!{
+            authorName = "By Anonymous"
+        }
+        rssAuthor.text = authorName
+        rssImage.image = articleImage
     }
 
     override func didReceiveMemoryWarning() {

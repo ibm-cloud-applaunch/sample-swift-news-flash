@@ -90,12 +90,12 @@
 				C7FDA5452032BD1600187B57 /* ViewController.swift */,
 				C717E2392032DFAF00344593 /* NewsTableViewCell.swift */,
 				C717E23B2032DFC800344593 /* NewsTableViewController.swift */,
+				C718EA6E2033044E00E6CD03 /* ArticleViewController.swift */,
 				C717E23D2032DFE700344593 /* RSSFeeds.swift */,
 				C7FDA5472032BD1600187B57 /* Main.storyboard */,
 				C7FDA54A2032BD1600187B57 /* Assets.xcassets */,
 				C7FDA54C2032BD1600187B57 /* LaunchScreen.storyboard */,
 				C7FDA54F2032BD1600187B57 /* Info.plist */,
-				C718EA6E2033044E00E6CD03 /* ArticleViewController.swift */,
 			);
 			path = Newsflash;
 			sourceTree = "<group>";

@@ -54,7 +54,23 @@ class NewsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let feed = RSSFeeds.sharedInstance.data![indexPath.row]
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ArticleView") as! ArticleViewController
+        vc.articleTitle = feed["title"].stringValue
+        vc.articleDescription = feed["description"].stringValue
+        vc.authorName = feed["author"].stringValue
+        var imageData:NSData
+        do {
+            if(!feed["urlToImage"].stringValue.isEmpty){
+                imageData = try NSData(contentsOf: URL(string: feed["urlToImage"].stringValue)!)
+            }else{
+                imageData = NSData()
+            }
+        } catch  {
+            imageData = NSData()
+        }
+        vc.articleImage = UIImage(data: imageData as Data)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
