@@ -29,12 +29,12 @@ class NewsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return (RSSFeeds.sharedInstance.data?.count)!
+        return (ViewController.data?.count)!
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RSSItem", for: indexPath) as! NewsTableViewCell
-        let feed = RSSFeeds.sharedInstance.data![indexPath.row]
+        let feed = ViewController.data![indexPath.row]
         cell.rssTitle.text = feed["title"].stringValue
         cell.rssDescription.text = feed["description"].stringValue
         cell.rssDescription.textContainer.maximumNumberOfLines = 2
@@ -54,7 +54,7 @@ class NewsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let feed = RSSFeeds.sharedInstance.data![indexPath.row]
+        let feed = ViewController.data![indexPath.row]
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ArticleView") as! ArticleViewController
         vc.articleTitle = feed["title"].stringValue
         vc.articleDescription = feed["description"].stringValue
@@ -71,6 +71,12 @@ class NewsTableViewController: UITableViewController {
         }
         vc.articleImage = UIImage(data: imageData as Data)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func logout(_ sender: Any) {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "loginView") as! UINavigationController
+        self.present(vc, animated: true, completion: nil)
     }
     
     

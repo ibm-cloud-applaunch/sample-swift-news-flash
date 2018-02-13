@@ -30,6 +30,8 @@ class ArticleViewController: UIViewController {
         rssDescription.text = articleDescription
         if (authorName?.isEmpty)!{
             authorName = "By Anonymous"
+        } else {
+            authorName = "By " + authorName!
         }
         rssAuthor.text = authorName
         rssImage.image = articleImage
