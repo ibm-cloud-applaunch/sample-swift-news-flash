@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IBMAppLaunch
 
 class ArticleViewController: UIViewController {
     
@@ -18,6 +19,8 @@ class ArticleViewController: UIViewController {
     @IBOutlet weak var rssImage: UIImageView!
     @IBOutlet weak var rssTitle: UILabel!
     @IBOutlet weak var rssAuthor: UILabel!
+    @IBOutlet weak var shareIcon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,14 +46,15 @@ class ArticleViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    internal func checkIfShareIconEnabled() {
+        do {
+            let flag = try AppLaunch.sharedInstance.isFeatureEnabled(featureCode: "FEATURE-CODE")
+            if (flag) {
+                self.shareIcon.isHidden = false
+            }
+        } catch {
+          // AppLaunch Error
+        }
     }
-    */
 
 }
