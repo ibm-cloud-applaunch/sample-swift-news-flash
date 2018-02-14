@@ -12,14 +12,16 @@ import SwiftyJSON
 import IBMAppLaunch
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var userName: UITextField!
     static var data:JSON?
+    
+    let alertOverlay = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,27 +39,29 @@ class ViewController: UIViewController {
                     self.registerAppLaunch(username: user!, isSubscribed: isSubscribed, handler: { (success, failure) in
                         if (success != nil){
                             //AppLaunch Initialization Success
-                            self.dismissOverlay()
-                            let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                            let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "navigationView") as! UINavigationController
-                            self.present(vc, animated: true, completion: nil)
+                            self.dismissOverlay("")
+                            DispatchQueue.main.async {
+                                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                                let vc : UIViewController = mainStoryboard.instantiateViewController(withIdentifier: "navigationView") as! UINavigationController
+                                self.present(vc, animated: true, completion: nil)
+                            }
                         }
                         else {
                             // Show pop up
-                            self.dismissOverlay()
-                            self.showAlert("AppLaunch Intialization Failed, Try after sometime.")
+                            self.dismissOverlay("AppLaunch Intialization Failed, Try after sometime.")
+                            
                         }
                     })
                 } else {
                     // Show pop up
-                    self.dismissOverlay()
-                    self.showAlert("News retreival failed, Try after sometime.")
+                    self.dismissOverlay("News retreival failed, Try after sometime.")
+                    
                 }
             })
         } else {
             // Show pop up
-            dismissOverlay()
-            showAlert("Invalid User ID")
+            dismissOverlay("Invalid User ID")
+            
         }
     }
     
@@ -81,11 +85,14 @@ class ViewController: UIViewController {
     }
     
     func showAlert(_ message: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2), execute: {
+        
+        
+        DispatchQueue.main.async {
             let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
-        })
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,19 +100,25 @@ class ViewController: UIViewController {
     }
     
     func showOverlay() {
-        let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .alert)
+        
         let loadingIndicator = UIActivityIndicatorView(frame: CGRect(x: 10, y: 5, width: 50, height: 50))
         loadingIndicator.hidesWhenStopped = true
         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         loadingIndicator.startAnimating();
-        alert.view.addSubview(loadingIndicator)
-        present(alert, animated: true, completion: nil)
+        self.alertOverlay.view.addSubview(loadingIndicator)
+        present(self.alertOverlay, animated: true, completion: nil)
     }
     
-    func dismissOverlay() {
-        dismiss(animated: false, completion: nil)
+    func dismissOverlay(_ msg:String) {
+        DispatchQueue.main.async {
+            self.alertOverlay.dismiss(animated: true) {
+                if(msg != ""){
+                    self.showAlert(msg)
+                }
+            }
+        }
     }
-
-
+    
+    
 }
 
