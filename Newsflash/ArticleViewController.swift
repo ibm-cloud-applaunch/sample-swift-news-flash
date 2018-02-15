@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IBMAppLaunch
 
 class ArticleViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class ArticleViewController: UIViewController {
     var articleDescription:String?
     var articleImage:UIImage?
     var authorName:String?
+    @IBOutlet weak var shareButton: UIImageView!
     @IBOutlet weak var rssDescription: UITextView!
     @IBOutlet weak var rssImage: UIImageView!
     @IBOutlet weak var rssTitle: UILabel!
@@ -35,6 +37,18 @@ class ArticleViewController: UIViewController {
         }
         rssAuthor.text = authorName
         rssImage.image = articleImage
+        let showShareButton:String;
+        do {
+            showShareButton = try AppLaunch.sharedInstance.getPropertyofFeature(featureCode: "", propertyCode: "")
+        }
+        catch(AppLaunchError.applaunchNotIntialized){
+            print("Not initalized")
+        }
+        
+        if(showShareButton.compare("true").rawValue == 0){
+            shareButton.isHidden = false
+        }
+    
     }
 
     override func didReceiveMemoryWarning() {
