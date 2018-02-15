@@ -15,12 +15,11 @@ class ArticleViewController: UIViewController {
     var articleDescription:String?
     var articleImage:UIImage?
     var authorName:String?
+    @IBOutlet weak var shareButton: UIImageView!
     @IBOutlet weak var rssDescription: UITextView!
     @IBOutlet weak var rssImage: UIImageView!
     @IBOutlet weak var rssTitle: UILabel!
     @IBOutlet weak var rssAuthor: UILabel!
-    @IBOutlet weak var shareIcon: UIImageView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,6 +37,18 @@ class ArticleViewController: UIViewController {
         }
         rssAuthor.text = authorName
         rssImage.image = articleImage
+        var showShareButton:String="";
+        do {
+            showShareButton = try AppLaunch.sharedInstance.getPropertyofFeature(featureCode: "", propertyCode: "")
+        }
+        catch{
+            print("Not initalized")
+        }
+        
+        if(showShareButton.compare("true").rawValue == 0){
+            shareButton.isHidden = false
+        }
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,15 +57,14 @@ class ArticleViewController: UIViewController {
     }
     
 
-    internal func checkIfShareIconEnabled() {
-        do {
-            let flag = try AppLaunch.sharedInstance.isFeatureEnabled(featureCode: "FEATURE-CODE")
-            if (flag) {
-                self.shareIcon.isHidden = false
-            }
-        } catch {
-          // AppLaunch Error
-        }
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 }
