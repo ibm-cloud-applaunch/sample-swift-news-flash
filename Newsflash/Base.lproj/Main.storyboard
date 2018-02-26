@@ -151,7 +151,7 @@
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="xJS-QJ-oAw">
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="xJS-QJ-oAw">
                                 <rect key="frame" x="23" y="526" width="22" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="22" id="9sV-aT-AOq"/>
@@ -194,6 +194,7 @@
                         <outlet property="rssDescription" destination="Cm9-83-XDF" id="Q33-jG-5mc"/>
                         <outlet property="rssImage" destination="B2Z-ck-HHj" id="UiE-CE-CBa"/>
                         <outlet property="rssTitle" destination="iP3-Kf-Kfn" id="I2o-kn-w12"/>
+                        <outlet property="shareButton" destination="xJS-QJ-oAw" id="wos-yq-pVg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIY-uP-6pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
