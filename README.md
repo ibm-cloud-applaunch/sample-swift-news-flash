@@ -45,7 +45,7 @@ Now if you are all set with the above requirements, let’s deep dive into App-L
 
 * If everything is fine, you should see a popup saying “Build Succeeded” as below:
 ![](images/build%20succeed-141.png)
- 
+
 ## 3. Configuring Swift Sample App:
 
 * The app is ready with App-Launch Swift SDK integration. But you will need to make some configuration changes to make your App communicate with your App-Launch Service hosted on IBM Cloud. For that, follow these steps:
@@ -87,7 +87,8 @@ That’s it!
 
 * Upon successful save, you should have this:
 ![](images/FeatureReady-36.png)
-**STEP 2 - Creating an Audience:**
+
+**STEP 2 - Creating an Audience:**
 * Go to “Audience” tab in the side Panel.
 ![](images/AudienceHome-39.png)
 
@@ -99,7 +100,8 @@ That’s it!
 
 * Click on “Create” button at the bottom of the page and you should see the following page.
 ![](images/AudienceReady-40.png)
-**STEP 3 - Creating an Engagement:**
+
+**STEP 3 - Creating an Engagement:**
 * Go to “Engagement” tab in the side Panel.
 ![](images/EngageHome-49.png)
 
@@ -117,7 +119,8 @@ That’s it!
 
 * Upon successful Save, you will have:
 ![](images/Engage5-57.png)
-**STEP 4 - Getting our Swift Sample App ready:**
+
+**STEP 4 - Getting our Swift Sample App ready:**
 * Go to Xcode Studio Project -> Open “ArticleViewController.swift”, go to function “viewWillAppear” and at the end Copy-Paste the following code there:
 ```
 var showShareButton:String = "";
@@ -140,6 +143,7 @@ if(showShareButton.compare("true").rawValue == 0){
 
 Here you can find the “Feature Code” and “Property Code”.
 Copy these values into your code (in the red marked area)
+
 ```
 var showShareButton:String = "";
         
@@ -154,7 +158,8 @@ if(showShareButton.compare("true").rawValue == 0){
 	shareButton.isHidden = false
 }
 ```
-That’s it! 
+
+That’s it! 
 Run the app and in the User ID field enter “user1” - a predefined Subscribed User.
 (**Note**: Double check whether the App GUID and Client Secret exists correctly in the File ViewController.swift)
 
@@ -209,7 +214,8 @@ Run the app and in the User ID field enter “user1” - a predefined Subscribed
 
 * Click “Save” to save your Engagement.
 ![](images/e10-93.png)
-**STEP 3 -  Getting our Swift Sample App ready:**
+
+**STEP 3 -  Getting our Swift Sample App ready:**
 * Open terminal -> go to your project directory and enter the following command (revert any changes done for LAB-1):
 > git checkout a-b-test  
 * Open File “NewsTableViewController.swift”. Go to function “checkForInAppMessage” at the end of file and paste the following code in it.
@@ -223,7 +229,8 @@ do {
 And that’s it, your App is ready to receive the In-App messages.
 (Note: Make sure you have Copy-Pasted your App GUID and Client Secret again, as you switched the branches your previous changes are lost)
 
-![](images/AB%20Test.png)
+![](images/AB%20Test.png)
+
 You can check the performance of the Engagement in the dashboard in Engagement Details as shown below: 
 ![](images/Engagement%20Performance-109.png)
 
