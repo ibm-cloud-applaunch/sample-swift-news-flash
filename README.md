@@ -3,17 +3,19 @@
 The IBM® App Launch for IBM Cloud Services enables app owners to launch features to mobile apps at speed and measure their impact by controlling the targeted audience. The app owner can work with app developers to define key performance indicators for the features, collect responses and decide on feature roll-outs or roll-backs. The service also provides ability to test multiple variants of application features, user interface and messages and empower you to make decisions based on the feedback.
 
 # Overview of Swift Sample App - NEWS FLASH:
-News Flash is a news aggregator app for iOS. It collects latest trending news from several sources and presents it in a beautiful way. 
+News Flash is a news aggregator app for iOS. It collects latest trending news from several sources and presents it in a beautiful way.
 Now the company wants to move ahead and bring in some new cool features in the app. Two of their primary goals is:
 1. Roll out a feature that will allow sharing of News from within the app - for all the subscribed members.
 2. For the unsubscribed members - the company wants them to engage with them with InApp messages and measure the impact of the App with their responses.
-How can News Flash achieve this with the help of App-Launch? 
+How can News Flash achieve this with the help of App-Launch?
 You will learn soon in the Labs section soon.
+
+**Note:**  Currently there are three predefined users in the app, their usernames are **user1**, **user2** and **user3** respectively. In our app, the first user is a subscribed user while the other two are unsubscribed. 
 
 # Pre-requisites:
 * Stable Internet connection
 * Active IBM Cloud account
-* Basic knowledge of working with Xcode, Swift and Terminal 
+* Basic knowledge of working with Xcode, Swift and Terminal
 * Make sure cocoapods is correctly installed on the machine. Open the terminal and run the following command:
 > sudo gem install cocoapods  
 
@@ -30,7 +32,7 @@ Now if you are all set with the above requirements, let’s deep dive into App-L
 * Select App-Launch (Beta) and create a new service with necessary inputs.
 
 ## 2. Setting up Swift Sample App:
-* Open Xcode and click on Clone an existing project 
+* Open Xcode and click on Clone an existing project
 ![](images/Screen%20Shot%202018-02-15%20at%2011.49.43%20AM-112.png)
 
 * You will be asked for Git Repository URL, copy-paste the following link for the same:  ~Git Repository URL~ and click Clone button.
@@ -129,15 +131,15 @@ var showShareButton:String = "";
 do {       
 	showShareButton = try AppLaunch.sharedInstance.getPropertyofFeature(featureCode:      
      "your_feature_code", propertyCode: "your_property_code")
-} catch { 
+} catch {
 	print("Not initialised")
 }
 if(showShareButton.compare("true").rawValue == 0){
    shareButton.isHidden = false
 }
 ```
-        
-* Once this is done, all you need is to get “Feature-Code” and “Property-Code” from IBM Cloud App-Launch Console. So go to the console —> Features Tab 
+
+* Once this is done, all you need is to get “Feature-Code” and “Property-Code” from IBM Cloud App-Launch Console. So go to the console —> Features Tab
 ![](images/FeatureReady-137.png)
 
 * Click on the **i** icon on the “Share Feature” and you can see the details of this feature as below:
@@ -148,20 +150,20 @@ Copy these values into your code (in the red marked area)
 
 ```
 var showShareButton:String = "";
-        
+
 do {       
   showShareButton = try AppLaunch.sharedInstance.getPropertyofFeature(featureCode:      
      "<YOUR_FEATURE_CODE_HERE>", propertyCode: "<YOUR_PROPERTY_CODE_HERE>")
-} catch { 
+} catch {
   print("Not initialised")
 }
-        
+
 if(showShareButton.compare("true").rawValue == 0){
 	shareButton.isHidden = false
 }
 ```
 
-That’s it! 
+That’s it!
 Run the app and in the User ID field enter “user1” - a predefined Subscribed User.
 (**Note**: Double check whether the App GUID and Client Secret exists correctly in the File ViewController.swift)
 
@@ -220,6 +222,8 @@ Run the app and in the User ID field enter “user1” - a predefined Subscribed
 **STEP 3 -  Getting our Swift Sample App ready:**
 * Open terminal -> go to your project directory and enter the following command (revert any changes done for LAB-1):
 > git checkout a-b-test  
+> pod update <br />
+> pod install
 * Open File “NewsTableViewController.swift”. Go to function “checkForInAppMessage” at the end of file and paste the following code in it.
 ```
 do {
@@ -233,11 +237,10 @@ And that’s it, your App is ready to receive the In-App messages.
 
 ![](images/AB%20Test.png)
 
-You can check the performance of the Engagement in the dashboard in Engagement Details as shown below: 
+You can check the performance of the Engagement in the dashboard in Engagement Details as shown below:
 ![](images/Engagement%20Performance-109.png)
 
 
 # We Value Your Feedback!
 Don’t forget to submit your Think 2018 session and speaker feedback! Your feedback is very important to us – we use it to continually improve the conference.
 Access the Think 2018 agenda tool to quickly submit your surveys from your smartphone, laptop or conference kiosk.
-
