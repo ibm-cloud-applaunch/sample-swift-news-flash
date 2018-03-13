@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     internal func registerAppLaunch(username: String, isSubscribed: Bool, handler: @escaping AppLaunchCompletionHandler) {
         let config = AppLaunchConfig.Builder().fetchPolicy(.REFRESH_ON_EVERY_START).cacheExpiration(1).eventFlushInterval(100).build()
         let user = AppLaunchUser.Builder(userId: username).custom(key: "isSubscribed", boolValue: isSubscribed).build()
-        AppLaunch.sharedInstance.initialize(region: .US_SOUTH, appId: "1e22e2af-4b02-47a8-b2f0-863fbc833da1", clientSecret: "f9c6a74f-c0f3-4ab6-b1d2-bfa004aa07a9", config: config, user: user, completionHandler: handler)
+        AppLaunch.sharedInstance.initialize(region: .US_SOUTH, appId: "<APP-GUID-HERE>", clientSecret: "<CLIENT_SECRET_HERE>", config: config, user: user, completionHandler: handler)
     }
     
     func showAlert(_ message: String) {
