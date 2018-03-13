@@ -79,7 +79,7 @@ class ViewController: UIViewController {
     }
     
     internal func registerAppLaunch(username: String, isSubscribed: Bool, handler: @escaping AppLaunchCompletionHandler) {
-        let config = AppLaunchConfig.Builder().fetchPolicy(.REFRESH_ON_EVERY_START).cacheExpiration(1).eventFlushInterval(100).build()
+        let config = AppLaunchConfig.Builder().fetchPolicy(.REFRESH_ON_EVERY_START).deviceID(username+String(isSubscribed)).cacheExpiration(1).eventFlushInterval(100).build()
         let user = AppLaunchUser.Builder(userId: username).custom(key: "isSubscribed", boolValue: isSubscribed).build()
         AppLaunch.sharedInstance.initialize(region: .US_SOUTH, appId: "fedacbef-667b-4057-8285-a0191a2f875d", clientSecret: "41aeae97-4b20-4232-b441-96a4ae80d6a3", config: config, user: user, completionHandler: handler)
     }
