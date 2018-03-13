@@ -39,7 +39,7 @@ class ArticleViewController: UIViewController {
         rssImage.image = articleImage
         var showShareButton:String="";
         do {
-            showShareButton = try AppLaunch.sharedInstance.getPropertyofFeature(featureCode: "", propertyCode: "")
+            showShareButton = try AppLaunch.sharedInstance.getPropertyofFeature(featureCode: "<your feature code>", propertyCode: "<your property code>")
         }
         catch{
             print("Not initalized")
