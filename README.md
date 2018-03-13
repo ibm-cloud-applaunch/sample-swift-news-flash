@@ -38,7 +38,9 @@ Now if you are all set with the above requirements, let’s deep dive into App-L
 
 * Select your desired location of Project and click “Clone”.
 * Open Terminal application (shortcut: cmd + space -> type “terminal” -> select)
-* Go to the directory where you cloned the Swift Sample app and type the following command:
+* Go to the directory where you cloned the Swift Sample app and run the following commands:
+> pod update
+
 > pod install  
 * To verify if whether everything is working fine or not, open the Xcode project and try to build and run the app by clicking on the PLAY button on the top left corner of the window as shown:
 ![](images/Screen%20Shot%202018-02-16%20at%2011.31.29%20AM-139.png)
