@@ -35,7 +35,7 @@ Now if you are all set with the above requirements, let’s deep dive into App-L
 * Open Xcode and click on Clone an existing project
 ![](images/Screen%20Shot%202018-02-15%20at%2011.49.43%20AM-112.png)
 
-* You will be asked for Git Repository URL, copy-paste the following link for the same:  ~Git Repository URL~ and click Clone button.
+* You will be asked for Git Repository URL, copy-paste the following link for the same:  [Git Repository URL](https://github.com/ibm-cloud-applaunch/sample-swift-news-flash) and click Clone button.
 ![](images/Screen%20Shot%202018-02-15%20at%2011.49.53%20AM-111.png)
 
 * Select your desired location of Project and click “Clone”.
