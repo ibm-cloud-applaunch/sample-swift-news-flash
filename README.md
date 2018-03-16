@@ -27,7 +27,7 @@ Now if you are all set with the above requirements, let’s deep dive into App-L
 
 ## 1. Setting up App-Launch Service on IBM Cloud:
 
-* Fire up this url to launch ~IBM Cloud Services Catalog~
+* Fire up this url to launch [IBM Cloud Services Catalog](https://console.bluemix.net).
 * Open “Catalog” and go to “Mobile” tab in the sidebar.
 * Select App-Launch (Beta) and create a new service with necessary inputs.
 
